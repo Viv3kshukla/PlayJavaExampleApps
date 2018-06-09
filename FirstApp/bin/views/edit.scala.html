@@ -2,10 +2,10 @@
 @import helper._		
 
 
-<html>
-	<head><title>Edit Book</title></head>
-	<body>
-		<h1> Edit Book </h1>
+@layout("Edit Book"){
+
+	<h1> Edit Book </h1>
+
 		@helper.form(action=routes.BooksController.update()){
 			@helper.inputText(bookForm("id"))
 			@helper.inputText(bookForm("title"))
@@ -17,8 +17,5 @@
 		}
 	
 		
-	
-	</body>
 
-
-</html>
+}

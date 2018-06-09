@@ -2,10 +2,8 @@
 
 
 
-<html>
-	<head><title>@book.title</title></head>
-	<body>
-		<h2> @book.title </h2>
+@layout(book.title){
+	<h2> @book.title </h2>
 		<p>Book prize : @book.prize</p>
 		<p>Author : @book.author</p>
 		
@@ -14,7 +12,5 @@
 	
 		
 	
-	</body>
 
-
-</html>
+}
