@@ -51,7 +51,17 @@ public class BooksController extends Controller{
 	}
 	
 	public Result update() {
-		return TODO;	
+		Book book=formFactory.form(Book.class).bindFromRequest().get();
+		Book oldBook=Book.findById(book.id);
+		if(oldBook==null) {
+			return notFound(" Book Not Found ");
+		}
+		oldBook.title=book.title;
+		oldBook.author=book.author;
+		oldBook.prize=book.prize;
+		
+		return redirect(routes.BooksController.index());
+		
 	}
 	
 	public Result destroy(Integer id) {
