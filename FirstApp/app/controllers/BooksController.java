@@ -70,7 +70,11 @@ public class BooksController extends Controller{
 	
 	
 	public Result show(Integer id) {
-		return TODO;
+		Book book=Book.findById(id);
+		if(book==null) {
+			return notFound("Book not Found");
+		}
+		return ok(show.render(book));
 	}
 	
 	
