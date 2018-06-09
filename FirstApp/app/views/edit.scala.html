@@ -1,0 +1,24 @@
+@(bookForm : Form[Book])
+@import helper._		
+
+
+<html>
+	<head><title>Edit Book</title></head>
+	<body>
+		<h1> Edit Book </h1>
+		@helper.form(action=routes.BooksController.update()){
+			@helper.inputText(bookForm("id"))
+			@helper.inputText(bookForm("title"))
+			@helper.inputText(bookForm("author"))
+			@helper.inputText(bookForm("prize"))
+		
+		
+			<input type="submit" value="edit book">
+		}
+	
+		
+	
+	</body>
+
+
+</html>
