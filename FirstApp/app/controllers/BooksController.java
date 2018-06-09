@@ -17,7 +17,6 @@ public class BooksController extends Controller{
 	// for all books
 	public Result index() {
 		Set<Book> books=Book.allBooks();
-		Book bk =new Book(1,"vivek",34,"aluthaeedf");
 		return ok(enter.render(books));
 		
 	}
@@ -35,7 +34,10 @@ public class BooksController extends Controller{
 	// for saving book
 	
 	public Result save() {
-		return TODO;
+		Form<Book> bookForm=formFactory.form(Book.class).bindFromRequest();
+		Book book=bookForm.get();
+		Book.add(book);
+		return redirect(routes.BooksController.index());
 	}
 	
 	public Result edit(Integer id) {
